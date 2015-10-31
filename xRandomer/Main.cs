@@ -72,7 +72,15 @@ namespace xRandomer
 
         private void buttonCopy_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(textCode.Text);
+            if (!String.IsNullOrEmpty(textCode.Text))
+            {
+                Clipboard.SetText(textCode.Text);
+            }
+        }
+
+        private void buttonClearFormat_Click(object sender, EventArgs e)
+        {
+            textFormat.Clear();
         }
     }
 }

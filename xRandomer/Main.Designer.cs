@@ -34,6 +34,7 @@
             this.labelInfo = new System.Windows.Forms.Label();
             this.listBoxDefaultFormat = new System.Windows.Forms.ListBox();
             this.buttonCopy = new System.Windows.Forms.Button();
+            this.buttonClearFormat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textCode
@@ -42,7 +43,7 @@
             this.textCode.Location = new System.Drawing.Point(12, 12);
             this.textCode.Name = "textCode";
             this.textCode.Size = new System.Drawing.Size(370, 38);
-            this.textCode.TabIndex = 0;
+            this.textCode.TabIndex = 2;
             this.textCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textCode_KeyDown);
             // 
             // textFormat
@@ -59,7 +60,7 @@
             this.buttonGenerate.Location = new System.Drawing.Point(151, 83);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(113, 34);
-            this.buttonGenerate.TabIndex = 2;
+            this.buttonGenerate.TabIndex = 0;
             this.buttonGenerate.Text = "Генерировать";
             this.buttonGenerate.UseVisualStyleBackColor = true;
             this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
@@ -82,27 +83,38 @@
             "Пин-код",
             "Цифровой ключ (4 блока)",
             "Номер телефона"});
-            this.listBoxDefaultFormat.Location = new System.Drawing.Point(388, 56);
+            this.listBoxDefaultFormat.Location = new System.Drawing.Point(418, 56);
             this.listBoxDefaultFormat.Name = "listBoxDefaultFormat";
-            this.listBoxDefaultFormat.Size = new System.Drawing.Size(173, 56);
+            this.listBoxDefaultFormat.Size = new System.Drawing.Size(147, 56);
             this.listBoxDefaultFormat.TabIndex = 4;
             this.listBoxDefaultFormat.SelectedIndexChanged += new System.EventHandler(this.listBoxDefaultFormat_SelectedIndexChanged);
             // 
             // buttonCopy
             // 
-            this.buttonCopy.Location = new System.Drawing.Point(387, 12);
+            this.buttonCopy.Location = new System.Drawing.Point(388, 12);
             this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(173, 38);
+            this.buttonCopy.Size = new System.Drawing.Size(177, 38);
             this.buttonCopy.TabIndex = 5;
             this.buttonCopy.Text = "Копировать";
             this.buttonCopy.UseVisualStyleBackColor = true;
             this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
+            // 
+            // buttonClearFormat
+            // 
+            this.buttonClearFormat.Image = global::xRandomer.Properties.Resources.cross;
+            this.buttonClearFormat.Location = new System.Drawing.Point(388, 56);
+            this.buttonClearFormat.Name = "buttonClearFormat";
+            this.buttonClearFormat.Size = new System.Drawing.Size(24, 24);
+            this.buttonClearFormat.TabIndex = 6;
+            this.buttonClearFormat.UseVisualStyleBackColor = true;
+            this.buttonClearFormat.Click += new System.EventHandler(this.buttonClearFormat_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 189);
+            this.Controls.Add(this.buttonClearFormat);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.listBoxDefaultFormat);
             this.Controls.Add(this.labelInfo);
@@ -127,6 +139,7 @@
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.ListBox listBoxDefaultFormat;
         private System.Windows.Forms.Button buttonCopy;
+        private System.Windows.Forms.Button buttonClearFormat;
 
 
     }
