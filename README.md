@@ -1,2 +1,1 @@
-# Requires PearXLib.
-# [Get](http://github.com/mrAppleXZ/PearXLib)
+# Requires PearXLib ([Get it](http://github.com/mrAppleXZ/PearXLib)).
