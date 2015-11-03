@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelInfo.Text" xml:space="preserve">
+    <value>%num% - случайное число, например "1" или "5".
+%char% - случайная буква в нижнем регистре, например "v" или "f".
+%CHAR% - случайная буква в верхнем регистре, например "B" или "G".
+%sym% - случайный символ, например "+" или "#".
+%rand% - случайное число, буква, знак.
+%randws% - случайное число или буква.</value>
+  </data>
 </root>

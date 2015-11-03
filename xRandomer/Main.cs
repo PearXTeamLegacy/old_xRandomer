@@ -49,6 +49,18 @@ namespace xRandomer
             {
                 str = PXL.ReplaceFirst(str, "%num%", PXL.GenNumber().ToString());
             }
+            while(str.Contains("%rand%"))
+            {
+                str = PXL.ReplaceFirst(str, "%rand%", PXL.GenRandom(true).ToString());
+            }
+            while(str.Contains("%randws%"))
+            {
+                str = PXL.ReplaceFirst(str, "%randws%", PXL.GenRandom(false).ToString());
+            }
+            while(str.Contains("%sym%"))
+            {
+                str = PXL.ReplaceFirst(str, "%sym%", PXL.GenSymbol().ToString());
+            }
             textCode.Text = str;
             buttonGenerate.Enabled = true;
         }
@@ -65,6 +77,18 @@ namespace xRandomer
                    break;
                case 2:
                    textFormat.Text = "+%num% (%num%%num%%num%) %num%%num%%num% %num%%num% %num%%num%";
+                   break;
+               case 3:
+                   textFormat.Text = "%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%";
+                   break;
+               case 4:
+                   textFormat.Text = "%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%";
+                   break;
+               case 5:
+                   textFormat.Text = "%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%%randws%";
+                   break;
+               case 6:
+                   textFormat.Text = "%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%%rand%";
                    break;
 
            }
