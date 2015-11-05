@@ -93,9 +93,16 @@
   <ItemGroup>
     <None Include="Resources\loading.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy xRandomer.exe "../../../builded/"</PostBuildEvent>
+    <PostBuildEvent>copy xRandomer.exe "../../../builded/"
+copy PearXLib.dll "../../../builded/"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

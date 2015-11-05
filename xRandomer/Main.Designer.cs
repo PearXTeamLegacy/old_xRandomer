@@ -45,6 +45,7 @@
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.buttonAutoGenStop = new System.Windows.Forms.Button();
             this.buttonAutoGenStart = new System.Windows.Forms.Button();
+            this.buttonPlus = new System.Windows.Forms.Button();
             this.groupBoxAutoGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.SuspendLayout();
@@ -144,7 +145,7 @@
             this.groupBoxAutoGen.Controls.Add(this.textBoxCount);
             this.groupBoxAutoGen.Controls.Add(this.buttonAutoGenStop);
             this.groupBoxAutoGen.Controls.Add(this.buttonAutoGenStart);
-            this.groupBoxAutoGen.Location = new System.Drawing.Point(601, 12);
+            this.groupBoxAutoGen.Location = new System.Drawing.Point(634, 12);
             this.groupBoxAutoGen.Name = "groupBoxAutoGen";
             this.groupBoxAutoGen.Size = new System.Drawing.Size(313, 209);
             this.groupBoxAutoGen.TabIndex = 10;
@@ -208,11 +209,22 @@
             this.buttonAutoGenStart.UseVisualStyleBackColor = true;
             this.buttonAutoGenStart.Click += new System.EventHandler(this.buttonAutoGenStart_Click);
             // 
+            // buttonPlus
+            // 
+            this.buttonPlus.Image = global::xRandomer.Properties.Resources.plus;
+            this.buttonPlus.Location = new System.Drawing.Point(601, 1);
+            this.buttonPlus.Name = "buttonPlus";
+            this.buttonPlus.Size = new System.Drawing.Size(32, 32);
+            this.buttonPlus.TabIndex = 11;
+            this.buttonPlus.UseVisualStyleBackColor = true;
+            this.buttonPlus.Click += new System.EventHandler(this.buttonPlus_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 230);
+            this.ClientSize = new System.Drawing.Size(634, 230);
+            this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.groupBoxAutoGen);
             this.Controls.Add(this.textCode);
             this.Controls.Add(this.labelInfo);
@@ -253,6 +265,7 @@
         private System.Windows.Forms.Button buttonOpenFolder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBoxLoading;
+        private System.Windows.Forms.Button buttonPlus;
 
 
     }
