@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.textCode = new System.Windows.Forms.TextBox();
             this.textFormat = new System.Windows.Forms.TextBox();
             this.buttonGenerate = new System.Windows.Forms.Button();
-            this.labelInfo = new System.Windows.Forms.Label();
             this.listBoxDefaultFormat = new System.Windows.Forms.ListBox();
             this.buttonCopy = new System.Windows.Forms.Button();
             this.buttonClearFormat = new System.Windows.Forms.Button();
+            this.labelHelp = new System.Windows.Forms.Label();
+            this.labelInfo = new System.Windows.Forms.Label();
+            this.backgroundWorkerAutoRandom = new System.ComponentModel.BackgroundWorker();
+            this.textCode = new System.Windows.Forms.TextBox();
+            this.groupBoxAutoGen = new System.Windows.Forms.GroupBox();
+            this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
+            this.buttonOpenFolder = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxCount = new System.Windows.Forms.TextBox();
+            this.buttonAutoGenStop = new System.Windows.Forms.Button();
+            this.buttonAutoGenStart = new System.Windows.Forms.Button();
+            this.groupBoxAutoGen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textCode
-            // 
-            this.textCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textCode.Location = new System.Drawing.Point(12, 12);
-            this.textCode.Name = "textCode";
-            this.textCode.Size = new System.Drawing.Size(370, 38);
-            this.textCode.TabIndex = 2;
-            this.textCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textCode_KeyDown);
             // 
             // textFormat
             // 
@@ -58,22 +60,13 @@
             // 
             // buttonGenerate
             // 
-            this.buttonGenerate.Location = new System.Drawing.Point(151, 83);
+            this.buttonGenerate.Location = new System.Drawing.Point(12, 83);
             this.buttonGenerate.Name = "buttonGenerate";
-            this.buttonGenerate.Size = new System.Drawing.Size(113, 34);
+            this.buttonGenerate.Size = new System.Drawing.Size(368, 34);
             this.buttonGenerate.TabIndex = 0;
             this.buttonGenerate.Text = "Генерировать";
             this.buttonGenerate.UseVisualStyleBackColor = true;
             this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
-            // 
-            // labelInfo
-            // 
-            this.labelInfo.AutoSize = true;
-            this.labelInfo.Location = new System.Drawing.Point(17, 141);
-            this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(371, 78);
-            this.labelInfo.TabIndex = 3;
-            this.labelInfo.Text = resources.GetString("labelInfo.Text");
             // 
             // listBoxDefaultFormat
             // 
@@ -94,7 +87,7 @@
             // 
             // buttonCopy
             // 
-            this.buttonCopy.Location = new System.Drawing.Point(388, 12);
+            this.buttonCopy.Location = new System.Drawing.Point(383, 12);
             this.buttonCopy.Name = "buttonCopy";
             this.buttonCopy.Size = new System.Drawing.Size(207, 38);
             this.buttonCopy.TabIndex = 5;
@@ -105,30 +98,138 @@
             // buttonClearFormat
             // 
             this.buttonClearFormat.Image = global::xRandomer.Properties.Resources.cross;
-            this.buttonClearFormat.Location = new System.Drawing.Point(388, 56);
+            this.buttonClearFormat.Location = new System.Drawing.Point(383, 55);
             this.buttonClearFormat.Name = "buttonClearFormat";
             this.buttonClearFormat.Size = new System.Drawing.Size(24, 24);
             this.buttonClearFormat.TabIndex = 6;
             this.buttonClearFormat.UseVisualStyleBackColor = true;
             this.buttonClearFormat.Click += new System.EventHandler(this.buttonClearFormat_Click);
             // 
+            // labelHelp
+            // 
+            this.labelHelp.AutoSize = true;
+            this.labelHelp.Location = new System.Drawing.Point(9, 141);
+            this.labelHelp.Name = "labelHelp";
+            this.labelHelp.Size = new System.Drawing.Size(0, 13);
+            this.labelHelp.TabIndex = 7;
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.AutoSize = true;
+            this.labelInfo.Location = new System.Drawing.Point(7, 143);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(371, 78);
+            this.labelInfo.TabIndex = 8;
+            this.labelInfo.Text = resources.GetString("labelInfo.Text");
+            // 
+            // backgroundWorkerAutoRandom
+            // 
+            this.backgroundWorkerAutoRandom.WorkerSupportsCancellation = true;
+            this.backgroundWorkerAutoRandom.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerAutoRandom_DoWork);
+            this.backgroundWorkerAutoRandom.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerAutoRandom_RunWorkerCompleted);
+            // 
+            // textCode
+            // 
+            this.textCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textCode.Location = new System.Drawing.Point(10, 12);
+            this.textCode.Name = "textCode";
+            this.textCode.Size = new System.Drawing.Size(370, 38);
+            this.textCode.TabIndex = 9;
+            // 
+            // groupBoxAutoGen
+            // 
+            this.groupBoxAutoGen.Controls.Add(this.pictureBoxLoading);
+            this.groupBoxAutoGen.Controls.Add(this.buttonOpenFolder);
+            this.groupBoxAutoGen.Controls.Add(this.label1);
+            this.groupBoxAutoGen.Controls.Add(this.textBoxCount);
+            this.groupBoxAutoGen.Controls.Add(this.buttonAutoGenStop);
+            this.groupBoxAutoGen.Controls.Add(this.buttonAutoGenStart);
+            this.groupBoxAutoGen.Location = new System.Drawing.Point(601, 12);
+            this.groupBoxAutoGen.Name = "groupBoxAutoGen";
+            this.groupBoxAutoGen.Size = new System.Drawing.Size(313, 209);
+            this.groupBoxAutoGen.TabIndex = 10;
+            this.groupBoxAutoGen.TabStop = false;
+            this.groupBoxAutoGen.Text = "Авто-генерация";
+            // 
+            // pictureBoxLoading
+            // 
+            this.pictureBoxLoading.Location = new System.Drawing.Point(123, 105);
+            this.pictureBoxLoading.Name = "pictureBoxLoading";
+            this.pictureBoxLoading.Size = new System.Drawing.Size(48, 48);
+            this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLoading.TabIndex = 5;
+            this.pictureBoxLoading.TabStop = false;
+            // 
+            // buttonOpenFolder
+            // 
+            this.buttonOpenFolder.Location = new System.Drawing.Point(6, 159);
+            this.buttonOpenFolder.Name = "buttonOpenFolder";
+            this.buttonOpenFolder.Size = new System.Drawing.Size(298, 44);
+            this.buttonOpenFolder.TabIndex = 4;
+            this.buttonOpenFolder.Text = "Открыть папку со сгенерированными кодами";
+            this.buttonOpenFolder.UseVisualStyleBackColor = true;
+            this.buttonOpenFolder.Click += new System.EventHandler(this.buttonOpenFolder_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(44, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Генерировать штук:";
+            // 
+            // textBoxCount
+            // 
+            this.textBoxCount.Location = new System.Drawing.Point(153, 68);
+            this.textBoxCount.MaxLength = 9;
+            this.textBoxCount.Name = "textBoxCount";
+            this.textBoxCount.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCount.TabIndex = 2;
+            this.textBoxCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCount_KeyPress);
+            // 
+            // buttonAutoGenStop
+            // 
+            this.buttonAutoGenStop.Location = new System.Drawing.Point(163, 19);
+            this.buttonAutoGenStop.Name = "buttonAutoGenStop";
+            this.buttonAutoGenStop.Size = new System.Drawing.Size(150, 43);
+            this.buttonAutoGenStop.TabIndex = 1;
+            this.buttonAutoGenStop.Text = "Стоп";
+            this.buttonAutoGenStop.UseVisualStyleBackColor = true;
+            this.buttonAutoGenStop.Click += new System.EventHandler(this.buttonAutoGenStop_Click);
+            // 
+            // buttonAutoGenStart
+            // 
+            this.buttonAutoGenStart.Location = new System.Drawing.Point(6, 19);
+            this.buttonAutoGenStart.Name = "buttonAutoGenStart";
+            this.buttonAutoGenStart.Size = new System.Drawing.Size(150, 43);
+            this.buttonAutoGenStart.TabIndex = 0;
+            this.buttonAutoGenStart.Text = "Старт";
+            this.buttonAutoGenStart.UseVisualStyleBackColor = true;
+            this.buttonAutoGenStart.Click += new System.EventHandler(this.buttonAutoGenStart_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 228);
+            this.ClientSize = new System.Drawing.Size(917, 230);
+            this.Controls.Add(this.groupBoxAutoGen);
+            this.Controls.Add(this.textCode);
+            this.Controls.Add(this.labelInfo);
+            this.Controls.Add(this.labelHelp);
             this.Controls.Add(this.buttonClearFormat);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.listBoxDefaultFormat);
-            this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.buttonGenerate);
             this.Controls.Add(this.textFormat);
-            this.Controls.Add(this.textCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "Randomer";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.groupBoxAutoGen.ResumeLayout(false);
+            this.groupBoxAutoGen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,13 +237,22 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textCode;
         private System.Windows.Forms.TextBox textFormat;
         private System.Windows.Forms.Button buttonGenerate;
-        private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.ListBox listBoxDefaultFormat;
         private System.Windows.Forms.Button buttonCopy;
         private System.Windows.Forms.Button buttonClearFormat;
+        private System.Windows.Forms.Label labelHelp;
+        private System.Windows.Forms.Label labelInfo;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerAutoRandom;
+        private System.Windows.Forms.TextBox textCode;
+        private System.Windows.Forms.GroupBox groupBoxAutoGen;
+        private System.Windows.Forms.TextBox textBoxCount;
+        private System.Windows.Forms.Button buttonAutoGenStop;
+        private System.Windows.Forms.Button buttonAutoGenStart;
+        private System.Windows.Forms.Button buttonOpenFolder;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBoxLoading;
 
 
     }
