@@ -194,7 +194,7 @@
             // 
             this.buttonAutoGenStop.Location = new System.Drawing.Point(163, 19);
             this.buttonAutoGenStop.Name = "buttonAutoGenStop";
-            this.buttonAutoGenStop.Size = new System.Drawing.Size(150, 43);
+            this.buttonAutoGenStop.Size = new System.Drawing.Size(144, 43);
             this.buttonAutoGenStop.TabIndex = 1;
             this.buttonAutoGenStop.Text = "Стоп";
             this.buttonAutoGenStop.UseVisualStyleBackColor = true;
@@ -235,6 +235,7 @@
             this.Controls.Add(this.listBoxDefaultFormat);
             this.Controls.Add(this.buttonGenerate);
             this.Controls.Add(this.textFormat);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "Randomer";
