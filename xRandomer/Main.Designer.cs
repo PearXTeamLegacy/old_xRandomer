@@ -136,6 +136,7 @@
             this.textCode.Name = "textCode";
             this.textCode.Size = new System.Drawing.Size(370, 38);
             this.textCode.TabIndex = 9;
+            this.textCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textCode_KeyDown);
             // 
             // groupBoxAutoGen
             // 
