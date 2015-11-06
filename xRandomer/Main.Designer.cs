@@ -151,6 +151,7 @@
             this.groupBoxAutoGen.TabIndex = 10;
             this.groupBoxAutoGen.TabStop = false;
             this.groupBoxAutoGen.Text = "Авто-генерация";
+            this.groupBoxAutoGen.Visible = false;
             // 
             // pictureBoxLoading
             // 
@@ -223,7 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 230);
+            this.ClientSize = new System.Drawing.Size(955, 230);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.groupBoxAutoGen);
             this.Controls.Add(this.textCode);
@@ -234,7 +235,6 @@
             this.Controls.Add(this.listBoxDefaultFormat);
             this.Controls.Add(this.buttonGenerate);
             this.Controls.Add(this.textFormat);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "Randomer";

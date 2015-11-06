@@ -26,7 +26,6 @@ namespace xRandomer
         private void Main_Load(object sender, EventArgs e)
         {
             PXL.createDir(d.pxDir + PXL.s + "xRandomer");
-            this.Size = new Size(654, 272);
             this.Icon = Resources.icon;
         }
 
@@ -164,13 +163,13 @@ namespace xRandomer
             if (isAutoGenOpened)
             {
                 isAutoGenOpened = false;
-                this.Size = new Size(654, 272);
+                groupBoxAutoGen.Visible = false;
                 buttonPlus.Image = Resources.plus;
             }
             else
             {
                 isAutoGenOpened = true;
-                this.Size = new Size(979, 272);
+                groupBoxAutoGen.Visible = true;
                 buttonPlus.Image = Resources.minus;
             }
         }
