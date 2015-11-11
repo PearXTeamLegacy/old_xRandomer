@@ -25,7 +25,7 @@ namespace xRandomer
 
         private void Main_Load(object sender, EventArgs e)
         {
-            PXL.createDir(d.pxDir + PXL.s + "xRandomer");
+            FileUtils.createDir(d.pxDir + PXL.s + "xRandomer");
             this.Icon = Resources.icon;
         }
 
@@ -42,27 +42,27 @@ namespace xRandomer
             string str = textFormat.Text;
             while (str.Contains("%char%"))
             {
-                str = PXL.ReplaceFirst(str, "%char%", PXL.GenChar(rand).ToString());
+                str = PXL.ReplaceFirst(str, "%char%", RandomUtils.GenChar(rand).ToString());
             }
             while (str.Contains("%CHAR%"))
             {
-                str = PXL.ReplaceFirst(str, "%CHAR%", PXL.GenChar(rand).ToString().ToUpper());
+                str = PXL.ReplaceFirst(str, "%CHAR%", RandomUtils.GenChar(rand).ToString().ToUpper());
             }
             while (str.Contains("%num%"))
             {
-                str = PXL.ReplaceFirst(str, "%num%", PXL.GenNumber(rand).ToString());
+                str = PXL.ReplaceFirst(str, "%num%", RandomUtils.GenNumber(rand).ToString());
             }
             while (str.Contains("%rand%"))
             {
-                str = PXL.ReplaceFirst(str, "%rand%", PXL.GenRandom(rand, true).ToString());
+                str = PXL.ReplaceFirst(str, "%rand%", RandomUtils.GenRandom(rand, true).ToString());
             }
             while (str.Contains("%randws%"))
             {
-                str = PXL.ReplaceFirst(str, "%randws%", PXL.GenRandom(rand, false).ToString());
+                str = PXL.ReplaceFirst(str, "%randws%", RandomUtils.GenRandom(rand, false).ToString());
             }
             while (str.Contains("%sym%"))
             {
-                str = PXL.ReplaceFirst(str, "%sym%", PXL.GenSymbol(rand).ToString());
+                str = PXL.ReplaceFirst(str, "%sym%", RandomUtils.GenSymbol(rand).ToString());
             }
             return str;
         }
